@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nexa Despacho · NexaVision AI</title>
+  <meta name="description" content="Demo visual de Nexa Despacho: documentación, validación contable, clientes y automatización para asesorías fiscales." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/jpeg" href="assets/logo-nexavision.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <a class="skip-link" href="#view">Saltar al contenido</a>
+  <div class="shell" id="shell">
+    <aside class="side" id="side">
+      <a class="side__brand" href="#/panel">
+        <img src="assets/logo-nexavision.jpg" alt="" width="34" height="34" />
+        <div><b>Nexa<span>Despacho</span></b><small>Asesoría Garriga &amp; Associats</small></div>
+      </a>
+
+      <nav class="side__nav" id="nav"></nav>
+
+      <div class="side__foot">
+        <button class="demo-label" data-demo="tour"><span class="demo-label__dot"></span><span>Demo interactiva<small>Datos ficticios · explorar pantallas</small></span><i class="ico" data-i="chevronRight"></i></button>
+        <div class="ia-meter">
+          <div class="ia-meter__top"><span><i class="ico" data-i="sparkles"></i> Gasto IA hoy</span><b>8,40 €</b></div>
+          <div class="ia-meter__bar"><i style="--p:34%"></i></div>
+          <small>Límite diario 25 € · 512 documentos</small>
+        </div>
+        <div class="me">
+          <span class="av av--lg" style="--c:#06b6d4">LG</span>
+          <div><b>Laura Garriga</b><small>Responsable de cartera</small></div>
+          <a href="#/login" class="icon-btn" title="Cerrar sesión"><i class="ico" data-i="logout"></i></a>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="top">
+        <button class="icon-btn top__menu" id="menuBtn" aria-label="Menú"><i class="ico" data-i="menu"></i></button>
+        <button class="search" id="openCmd"><i class="ico" data-i="search"></i><span>Buscar clientes, facturas, NIF…</span><kbd>⌘K</kbd></button>
+        <div class="period">
+          <button class="period__pick" data-demo="period" aria-label="Cambiar periodo de demostración"><i class="ico" data-i="calendar"></i><b>3T 2026</b><i class="ico ico--sm" data-i="chevronDown"></i></button>
+          <div class="period__deadline"><span class="pulse"></span><b>4 días</b> para «el 20»</div>
+        </div>
+        <div class="top__actions">
+          <button class="btn btn--ghost btn--sm" data-toast="Arrastra aquí los PDF o fotos para subirlos"><i class="ico" data-i="upload"></i> Subir</button>
+          <div class="dd">
+            <button class="icon-btn" data-dd="notif" aria-label="Notificaciones"><i class="ico" data-i="bell"></i><span class="dot-badge">6</span></button>
+            <div class="dd__menu dd__menu--notif" id="dd-notif"></div>
+          </div>
+        </div>
+      </header>
+
+      <main class="view" id="view" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div class="login" id="login" hidden></div>
+
+  <div class="cmd" id="cmd" hidden>
+    <div class="cmd__panel">
+      <div class="cmd__input"><i class="ico" data-i="search"></i><input id="cmdInput" placeholder="Escribe un cliente, NIF, pantalla o acción…" autocomplete="off" /><kbd>esc</kbd></div>
+      <div class="cmd__list" id="cmdList"></div>
+      <div class="cmd__foot"><span><kbd>↑</kbd><kbd>↓</kbd> navegar</span><span><kbd>↵</kbd> abrir</span><span class="cmd__ai"><i class="ico ico--sm" data-i="sparkles"></i> Pregunta a Nexa: «¿qué clientes de Marc no han respondido?»</span></div>
+    </div>
+  </div>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+  <button class="side-scrim" aria-label="Cerrar menú" hidden></button>
+  <dialog id="demo-dialog" class="demo-dialog" aria-labelledby="dialog-title"></dialog>
+
+  <script src="app.js"></script>
+  <script src="demo.js"></script>
+</body>
+</html>
